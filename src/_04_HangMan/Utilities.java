@@ -53,4 +53,23 @@ public class Utilities {
 		return totalLines;
 		
 	}
+
+	public static String readLineFromFile(String filename, int index){
+		String word = "";
+
+		try {
+			BufferedReader br = new BufferedReader(new FileReader(filename));
+			br.close();
+			br = new BufferedReader(new FileReader(filename));
+			for (int i = 0; i < index; i++) {
+				word = br.readLine();
+			}
+		} catch (FileNotFoundException e) {
+			JOptionPane.showMessageDialog(null, "Could not find file.", "ERROR", 1);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return word;
+	}
 }
